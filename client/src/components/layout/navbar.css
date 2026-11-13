@@ -1,0 +1,158 @@
+/* ---------- BASE ---------- */
+.site-header,
+.site-header *,
+.navbar {
+  box-sizing: border-box;
+}
+
+.site-header {
+  width: 100%;
+  position: relative;
+  z-index: 100;
+  background: #efebe6;
+}
+
+.navbar {
+  width: 100%;
+  min-height: 85px;
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  background: transparent;
+}
+
+/* ---------- LOGO ---------- */
+.logo {
+  color: #111;
+  text-decoration: none;
+  font-size: 27px;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  white-space: nowrap;
+}
+
+.logo span {
+  color: #f58a1f;
+}
+
+/* ---------- NAV LINKS ---------- */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: clamp(15px, 2.5vw, 35px);
+  min-width: 0;
+}
+
+.nav-menu a {
+  color: #111;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  transition: color 0.25s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: #f58a1f;
+}
+
+/* ---------- DOWNLOAD CV BUTTON ---------- */
+.btn-cv {
+  flex-shrink: 0;
+  padding: 14px 20px;
+  background: #111;
+  color: #fff;
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  transition: background 0.25s ease;
+}
+
+.btn-cv:hover {
+  background: #f58a1f;
+}
+
+.btn-cv span {
+  margin-left: 8px;
+}
+
+/* ---------- HAMBURGER (hidden on desktop) ---------- */
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* ---------- TABLET & MOBILE ---------- */
+@media (max-width: 900px) {
+  .navbar {
+    min-height: 75px;
+  }
+
+  /* hide CV button on smaller devices */
+  .btn-cv {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 102;
+  }
+
+  .menu-toggle span {
+    width: 27px;
+    height: 2px;
+    background: #111;
+    transition: transform 0.25s ease;
+  }
+
+  .menu-toggle.active span:first-child {
+    transform: translateY(4px) rotate(45deg);
+  }
+
+  .menu-toggle.active span:last-child {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 30px 5%;
+    background: #efebe6;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+  }
+
+  .nav-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- SMALL PHONES ---------- */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 6%;
+  }
+
+  .logo {
+    font-size: 23px;
+  }
+}
